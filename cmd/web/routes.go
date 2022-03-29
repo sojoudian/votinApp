@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/sojoudian/votinApp/pkg/config"
-	"github.com/sojoudian/votinApp/pkg/handlers"
+	"github.com/sojoudian/votinApp/internal/config"
+	"github.com/sojoudian/votinApp/internal/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {
@@ -16,7 +16,7 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Use(NoSurf)
 	mux.Use(SessionLoad)
 
-	mux.Get("/", handlers.Repo.Home)
+	mux.Get("/", handlers.Repo.Index)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))

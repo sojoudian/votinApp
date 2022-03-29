@@ -7,15 +7,18 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/sojoudian/votinApp/pkg/config"
-	"github.com/sojoudian/votinApp/pkg/handlers"
-	"github.com/sojoudian/votinApp/pkg/render"
+	"github.com/sojoudian/votinApp/internal/config"
+	"github.com/sojoudian/votinApp/internal/handlers"
+	"github.com/sojoudian/votinApp/internal/render"
 )
 
 const portNumber = ":8080"
 
 var app config.AppConfig
 var session *scs.SessionManager
+
+var OPTION_A string = "Cats"
+var OPTION_B string = "Dogs"
 
 // main is the main function
 func main() {
